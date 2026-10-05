@@ -28,6 +28,15 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
 
+      - name: Configure DVC
+        run: |
+          dvc remote modify dagshub --local access_key_id ${{ secrets.DAGSHUB_TOKEN }}
+          dvc remote modify dagshub --local secret_access_key ${{ secrets.DAGSHUB_TOKEN }}
+
+      - name: Pull DVC data
+        run: |
+          dvc pull
+
       - name: Run tests
         run: |
           pytest
