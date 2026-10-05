@@ -19,7 +19,7 @@ stages :
 
     outs :
       - model.pkl
-      - run_id.txt
+  
     
     
   evaluate :
@@ -27,6 +27,6 @@ stages :
     deps :
       - evaluate.py
       - data/test.csv
-      - run_id.txt
+      
     metrics :
       - metrics.json
